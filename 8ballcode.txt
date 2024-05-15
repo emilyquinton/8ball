@@ -1,0 +1,30 @@
+import random
+
+
+def instructions():
+  print(
+      "Hello! I am a magic 8 ball and I am here to answer all of your burning questions. \n"
+  )
+  input("Go ahead. Press enter to start. \n")
+
+
+def pullResponse():
+
+  input("Ask me a yes or no question. \n")
+  with open("/workspaces/8ball/answers.toml") as f:
+    responses = f.read().splitlines()
+    print(random.choice(responses))
+
+def playAgain():
+  decision= input("Hit enter to ask again. Press x to exit \n")
+  if decision == "x":
+    print("Thanks for playing!")
+    exit
+  else:
+   pullResponse()
+   playAgain() 
+
+
+instructions()
+pullResponse()
+playAgain()
